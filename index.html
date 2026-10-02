@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b3975">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icon-192.png">
+<title>La Clínica Vehicular - Boletas</title>
+<style>
+:root{--blue:#0b3975;--red:#e21b23;--ink:#13233b;--line:#c9d8e8;--soft:#f2f7fc}
+*{box-sizing:border-box}body{margin:0;background:#e9eef4;font-family:Arial,Helvetica,sans-serif;color:var(--ink)}
+button,input{font:inherit}.app{max-width:1250px;margin:auto;padding:18px}.topbar{background:#0d1b2a;color:#fff;border-radius:18px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;position:sticky;top:10px;z-index:5;box-shadow:0 8px 24px #0002}.brand-mini{font-weight:800;letter-spacing:.5px}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:0;border-radius:10px;padding:10px 14px;font-weight:800;cursor:pointer}.btn.primary{background:#e21b23;color:#fff}.btn.blue{background:#fff;color:#0b3975}.btn.dark{background:#17304f;color:#fff}.btn.gray{background:#e7edf4;color:#18324f}.editor{background:#fff;border-radius:18px;margin-top:16px;padding:18px;box-shadow:0 8px 30px #10243a18}.controls{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.field label{display:block;font-size:12px;font-weight:800;margin-bottom:5px;color:#46627e}.field input{width:100%;border:1px solid #b9c9da;border-radius:9px;padding:10px;background:#fff}.items-controls{display:flex;justify-content:space-between;align-items:center;margin:18px 0 8px;gap:10px}.table-wrap{overflow:auto}.edit-table{width:100%;border-collapse:collapse;min-width:700px}.edit-table th{background:#0b3975;color:#fff;padding:10px;text-align:left}.edit-table td{border:1px solid #d3dfeb;padding:6px}.edit-table input{width:100%;border:1px solid #c2d1df;padding:8px;border-radius:6px}.del{background:#fff;border:1px solid #e21b23;color:#c00;border-radius:7px;padding:6px 10px;cursor:pointer}.boleta{background:#fff;margin:20px auto 0;max-width:1180px;padding:24px;border-radius:8px;box-shadow:0 8px 30px #10243a1a;position:relative;overflow:hidden}.stripe{height:12px;background:linear-gradient(135deg,#0b3975 0 62%,#fff 62% 65%,#e21b23 65% 91%,#fff 91% 94%,#0b3975 94%);margin:-24px -24px 18px}.head{display:grid;grid-template-columns:1.15fr 1.55fr .9fr;gap:18px;align-items:center}.logo{width:100%;max-width:390px;display:block}.business h1{margin:0;color:#0b3975;font-size:28px}.business .sub{font-weight:800;color:#e21b23;font-size:16px;margin:6px 0}.business p{margin:5px 0;font-size:14px}.ticket{border:2px solid #b6c9dd;border-radius:12px;overflow:hidden}.ticket-title{background:#0b3975;color:#fff;text-align:center;font-size:23px;font-weight:900;padding:12px}.ticket-body{padding:12px}.ticket-row{display:flex;justify-content:space-between;margin:7px 0;font-weight:800}.ticket-num{font-size:22px;color:#0b3975}.client{margin-top:18px;background:var(--soft);border:1px solid #c7d9eb;border-radius:10px;padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:7px 30px}.client strong{color:#0b3975}.items{width:100%;border-collapse:collapse;margin-top:18px}.items th{background:#0b3975;color:#fff;padding:10px}.items td{border:1px solid #cbd8e5;padding:10px}.num{text-align:center}.money{text-align:right;white-space:nowrap}.bottom{display:grid;grid-template-columns:1fr .8fr;gap:20px;margin-top:16px}.obs{border:1px solid #c7d9eb;background:var(--soft);border-radius:10px;padding:14px;min-height:85px}.totalbox{background:#0b3975;color:#fff;border-radius:12px;padding:16px;display:flex;justify-content:space-between;font-size:24px;font-weight:900;align-items:center}.qr-area{display:flex;align-items:center;gap:20px;margin-top:18px}.qr{width:105px;height:105px}.note{font-size:11px;color:#5d7187}.watermark{position:absolute;right:30px;bottom:70px;width:300px;opacity:.05}.footer{border-top:2px solid #c7d6e6;margin-top:20px;padding-top:12px;text-align:center;font-size:12px;color:#536b84}.demo{font-size:11px;text-align:right;color:#8a1c1c;margin-top:8px;font-weight:700}.hidden{display:none!important}
+@media(max-width:850px){.controls{grid-template-columns:1fr 1fr}.head{grid-template-columns:1fr}.business h1{font-size:24px}.client{grid-template-columns:1fr}.bottom{grid-template-columns:1fr}.boleta{padding:15px}.stripe{margin:-15px -15px 15px}.topbar{position:static}}
+@media(max-width:560px){.app{padding:8px}.controls{grid-template-columns:1fr}.topbar{border-radius:12px}.actions .btn{flex:1}.editor{padding:12px}.boleta{margin-top:12px}.ticket-title{font-size:20px}}
+@media print{
+  @page{size:A4 landscape;margin:6mm}
+  html,body{width:100%;height:100%;background:#fff!important;margin:0!important;padding:0!important}
+  body{overflow:hidden!important}
+  .app{width:100%!important;max-width:none!important;margin:0!important;padding:0!important}
+  .app>*:not(.boleta){display:none!important}
+  .boleta{width:100%!important;max-width:none!important;height:198mm!important;max-height:198mm!important;overflow:hidden!important;box-shadow:none!important;margin:0!important;padding:8mm!important;border-radius:0!important}
+  .stripe{margin:-8mm -8mm 10px!important;height:8px}
+  .head{grid-template-columns:1.05fr 1.5fr .8fr;gap:10px}
+  .logo{max-width:300px}
+  .business h1{font-size:23px}
+  .business .sub{font-size:13px;margin:3px 0}
+  .business p{font-size:10px;margin:2px 0}
+  .ticket-title{font-size:18px;padding:8px}
+  .ticket-body{padding:7px}
+  .ticket-row{margin:4px 0;font-size:11px}
+  .ticket-num{font-size:17px}
+  .client{margin-top:10px;padding:8px;gap:4px 15px;font-size:10px}
+  .items{margin-top:10px;font-size:10px}
+  .items th,.items td{padding:6px}
+  .bottom{gap:12px;margin-top:10px}
+  .obs{padding:8px;min-height:52px;font-size:10px}
+  .totalbox{padding:10px;font-size:19px}
+  .qr-area{gap:10px;margin-top:8px}
+  .qr{width:70px;height:70px}
+  .note{font-size:9px}
+  .watermark{width:220px;right:20px;bottom:35px}
+  .demo{font-size:8px;margin-top:3px}
+  .footer{margin-top:8px;padding-top:5px;font-size:9px}
+  .no-print{display:none!important}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topbar no-print">
+    <div class="brand-mini">🚗 LA CLÍNICA VEHICULAR · Generador de boletas</div>
+    <div class="actions">
+      <button class="btn gray" id="newBtn">Nueva</button>
+      <button class="btn dark" id="imgBtn">Guardar imagen</button>
+      <button class="btn blue" id="pdfBtn">Guardar / imprimir PDF</button>
+    </div>
+  </div>
+  <section class="editor no-print">
+    <h2 style="margin:0 0 12px">Editar boleta</h2>
+    <div class="controls">
+      <div class="field"><label>Serie</label><input id="serie" value="B001"></div>
+      <div class="field"><label>Número</label><input id="numero" value="00000001"></div>
+      <div class="field"><label>Cliente</label><input id="cliente" value="Juan Pérez García"></div>
+      <div class="field"><label>DNI / RUC</label><input id="doc" value="12345678"></div>
+      <div class="field"><label>Dirección cliente</label><input id="dirCliente" value="Av. Principal 456, Lima, Lima"></div>
+      <div class="field"><label>Fecha</label><input id="fecha" type="date"></div>
+      <div class="field"><label>Observación</label><input id="obs" value="Gracias por su preferencia."></div>
+      <div class="field"><label>Moneda</label><input value="SOL" disabled></div>
+    </div>
+    <div class="items-controls"><strong>Productos / servicios</strong><button class="btn primary" id="addBtn">+ Agregar fila</button></div>
+    <div class="table-wrap"><table class="edit-table"><thead><tr><th>Descripción</th><th style="width:90px">Cantidad</th><th style="width:150px">P. Unitario</th><th style="width:150px">Importe</th><th style="width:80px"></th></tr></thead><tbody id="editBody"></tbody></table></div>
+  </section>
+
+  <section class="boleta" id="boleta">
+    <div class="stripe"></div>
+    <div class="head">
+      <div><img class="logo" src="./assets/logo.png" alt="La Clínica Vehicular"></div>
+      <div class="business"><h1>LA CLÍNICA VEHICULAR</h1><div class="sub">Autopartes y Accesorios en General</div><p><b>RUC:</b> 10477578816</p><p><b>Dirección:</b> DREAN ANDRES AVELINO CACERES - REF. FRENTE A PETRO PERÚ</p><p><b>Teléfono:</b> 973 827 152</p></div>
+      <div class="ticket"><div class="ticket-title">BOLETA DE VENTA</div><div class="ticket-body"><div class="ticket-row"><span>Serie:</span><span class="ticket-num" id="vSerie">B001</span></div><div class="ticket-row"><span>Número:</span><span class="ticket-num" id="vNumero">00000001</span></div></div></div>
+    </div>
+    <div class="client"><div><strong>Nombre / Razón Social:</strong> <span id="vCliente">Juan Pérez García</span></div><div><strong>Fecha de emisión:</strong> <span id="vFecha"></span></div><div><strong>DNI / RUC:</strong> <span id="vDoc">12345678</span></div><div><strong>Moneda:</strong> SOL</div><div style="grid-column:1/-1"><strong>Dirección:</strong> <span id="vDir">Av. Principal 456, Lima, Lima</span></div></div>
+    <table class="items"><thead><tr><th style="width:45px">N°</th><th>Descripción</th><th style="width:100px">Cantidad</th><th style="width:160px">P. Unitario</th><th style="width:170px">Importe</th></tr></thead><tbody id="viewBody"></tbody></table>
+    <div class="bottom"><div class="obs"><b>OBSERVACIONES:</b><br><span id="vObs">Gracias por su preferencia.</span></div><div class="totalbox"><span>TOTAL</span><span id="vTotal">S/ 0.00</span></div></div>
+    <div class="qr-area"><img class="qr" src="./assets/tiktok-qr.png" alt="QR TikTok"><div><b>Síguenos en TikTok</b><div class="note">Escanea el código para visitar @tunig.modepiurasebas</div></div></div>
+    <img class="watermark" src="./assets/logo.png" alt="">
+    <div class="demo">Documento de demostración - no válido como comprobante electrónico SUNAT.</div>
+    <div class="footer">LA CLÍNICA VEHICULAR · Autopartes y Accesorios en General · 973 827 152</div>
+  </section>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const money=n=>'S/ '+Number(n||0).toFixed(2);
+const today=()=>{const d=new Date();return d.toISOString().slice(0,10)};
+$('fecha').value=today();
+let rows=[['Reparación de parachoques',1,350],['Pintura y acabado',1,250]];
+function renderEditor(){
+  $('editBody').innerHTML='';
+  rows.forEach((r,i)=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td><input data-i="${i}" data-k="d" value="${escapeHtml(r[0])}"></td><td><input type="number" min="0" step="1" data-i="${i}" data-k="q" value="${r[1]}"></td><td><input type="number" min="0" step="0.01" data-i="${i}" data-k="p" value="${r[2]}"></td><td>${money(r[1]*r[2])}</td><td><button class="del" data-del="${i}">Eliminar</button></td>`;
+    $('editBody').appendChild(tr);
+  });
+  $('editBody').querySelectorAll('input').forEach(inp=>inp.addEventListener('input',e=>{const i=+e.target.dataset.i,k=e.target.dataset.k;rows[i][k==='d'?0:k==='q'?1:2]=k==='d'?e.target.value:Number(e.target.value);update();}));
+  $('editBody').querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{rows.splice(+b.dataset.del,1);renderEditor();update();});
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
+function update(){
+  $('vSerie').textContent=$('serie').value; $('vNumero').textContent=$('numero').value; $('vCliente').textContent=$('cliente').value; $('vDoc').textContent=$('doc').value; $('vDir').textContent=$('dirCliente').value; $('vObs').textContent=$('obs').value;
+  const d=$('fecha').value; $('vFecha').textContent=d?new Date(d+'T12:00:00').toLocaleDateString('es-PE'):'';
+  $('viewBody').innerHTML=''; let total=0;
+  rows.forEach((r,i)=>{const imp=(Number(r[1])||0)*(Number(r[2])||0);total+=imp;const tr=document.createElement('tr');tr.innerHTML=`<td class="num">${i+1}</td><td>${escapeHtml(r[0])}</td><td class="num">${r[1]}</td><td class="money">${money(r[2])}</td><td class="money">${money(imp)}</td>`;$('viewBody').appendChild(tr)});
+  if(!rows.length){$('viewBody').innerHTML='<tr><td colspan="5" style="text-align:center">Sin productos o servicios</td></tr>'}
+  $('vTotal').textContent=money(total); localStorage.setItem('clinicaData',JSON.stringify({rows,serie:$('serie').value,numero:$('numero').value,cliente:$('cliente').value,doc:$('doc').value,dir:$('dirCliente').value,fecha:$('fecha').value,obs:$('obs').value}));
+}
+['serie','numero','cliente','doc','dirCliente','fecha','obs'].forEach(id=>$(id).addEventListener('input',update));
+$('addBtn').onclick=()=>{rows.push(['Nuevo servicio',1,0]);renderEditor();update()};
+$('newBtn').onclick=()=>{if(!confirm('¿Crear una boleta nueva?'))return; rows=[['Nuevo servicio',1,0]]; $('numero').value=String(Number($('numero').value||0)+1).padStart(8,'0'); $('cliente').value='';$('doc').value='';$('dirCliente').value='';$('obs').value='Gracias por su preferencia.'; renderEditor();update()};
+$('pdfBtn').onclick=()=>window.print();
+$('imgBtn').onclick=async()=>{const el=$('boleta'); const clone=el.cloneNode(true); clone.style.width='1600px';clone.style.maxWidth='1600px';clone.style.position='absolute';clone.style.left='-100000px';clone.querySelectorAll('.no-print').forEach(x=>x.remove());document.body.appendChild(clone);try{const svg='<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1050"><foreignObject width="100%" height="100%"><div xmlns="http://www.w3.org/1999/xhtml" style="width:1600px;background:white">'+new XMLSerializer().serializeToString(clone).replace(/<svg[^>]*>|<\/svg>/g,'')+'</div></foreignObject></svg>';const blob=new Blob([svg],{type:'image/svg+xml'});const url=URL.createObjectURL(blob);const im=new Image();im.onload=()=>{const c=document.createElement('canvas');c.width=1600;c.height=1050;c.getContext('2d').drawImage(im,0,0);c.toBlob(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=`boleta-${$('serie').value}-${$('numero').value}.png`;a.click();URL.revokeObjectURL(url);URL.revokeObjectURL(a.href);clone.remove()},'image/png')};im.src=url}catch(e){clone.remove();alert('No se pudo generar la imagen en este navegador. Usa Imprimir > Guardar como PDF.')}};
+const saved=localStorage.getItem('clinicaData'); if(saved){try{const d=JSON.parse(saved);rows=d.rows||rows;['serie','numero','cliente','doc','dirCliente','fecha','obs'].forEach(k=>{if(d[k]!=null)$(k).value=d[k]})}catch(e){}} renderEditor();update();
+if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script>
+</body></html>
